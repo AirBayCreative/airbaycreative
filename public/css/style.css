@@ -1,0 +1,76 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+body {
+	background: green;
+	padding: 0;
+	margin: 0;
+}
+.card.flipped {
+    -webkit-transform: rotatey(-180deg);
+}
+.card {
+	position: relative;
+	float: left;
+	width: 45px;
+	height: 60px;
+	-webkit-transform-style: preserve-3d;
+	-webkit-transition: 0.5s;
+}
+.card .face {
+	-webkit-backface-visibility: hidden;
+	z-index: 2;
+}
+.card .front {
+	position: absolute;
+	z-index: 1;
+}
+.card .back {
+	-webkit-transform: rotatey(-180deg);
+}
+.player0 {
+	position: absolute;
+	bottom: 30px;
+	left: 10px;
+}
+.player1 {
+	margin: 2px;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+.player2 {
+	margin: 2px;
+	position: absolute;
+	top: 10px;
+	left: 115px;
+}
+.player3 {
+	margin: 2px;
+	position: absolute;
+	top: 10px;
+	left: 220px;
+}
+.board {
+	position: absolute;
+	top: 120px;
+	left: 10px;
+}
+.current{
+	background: #ccc;
+}
+.players {
+	margin: 0 auto;
+	padding: 0;
+}
+.start-btn {
+	position: absolute;
+	right: 0;	
+	bottom: 30px;
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html><!--HTML5 doctype-->
+<html>
+<head>
+<title>JQ Holdem</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link rel="stylesheet"  type="text/css" href="css/style.css" title="default" />
+<script type="text/javascript" charset="utf-8" src="js/poker.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/jq.mobi.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/jstorage.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/socket.io.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/playerHelper.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/boardHelper.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/gameLogic.js"></script>
+</head>
+<body>
+<script>
+/**
+	size  - 牌的象素高度。牌的宽高比固定为3:4。缺省值为200。
+	suit  - 牌面花色。取值大小写不敏感，必须为下列[]内的值之一：
+					['h', 'hearts', 'd', 'diamonds', 's', 'spades', 'c', 'clubs']
+					值对应红桃，方块，黑桃，梅花, 'h', 'd', 's', 'c' 是缩略写法
+					当牌面点数为'JOKER'时，红桃和方块表示牌为大王；黑桃和梅花表示牌为小王。
+					缺省值为'h'
+	point - 牌面点数。取值大小写不敏感，必须为下列[]内的值之一：
+					['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'O', 'JOKER']
+					'O'(字母O)是'JOKER'的缩略写法
+					缺省值为'O'
+*/
+</script>
+<style>
+</style>
+<div class="players">
+	<div class="player1">
+		<div class="userinfo">
+			Player1
+		</div>
+    <div class="card">
+        <div class="face front"></div>
+        <div class="face back"></div>
+    </div>
+    <div class="card">
+        <div class="face front"></div>
+        <div class="face back"></div>
+    </div>
+		<div class="status">
+			100
+		</div>
+	</div>
+	
+	<div class="player2">
+		<div class="userinfo">
+			Player2
+		</div>
+    <div class="card">
+        <div class="face front"></div>
+        <div class="face back"></div>
+    </div>
+    <div class="card">
+        <div class="face front"></div>
+        <div class="face back"></div>
+    </div>
+		<div class="status">
+			100
+		</div>
+	</div>
+	
+	<div class="player3">
+		<div class="userinfo">
+			Player3
+		</div>
+    <div class="card">
+        <div class="face front"></div>
+        <div class="face back"></div>
+    </div>
+    <div class="card">
+        <div class="face front"></div>
+        <div class="face back"></div>
+    </div>
+		<div class="status">
+			100
+		</div>
+	</div>
+	
+	<div class="board">
+    <div class="card">
+        <div class="face front"></div>
+        <div class="face back"></div>
+    </div>
+    <div class="card">
+        <div class="face front"></div>
+        <div class="face back"></div>
+    </div>
+    <div class="card">
+        <div class="face front"></div>
+        <div class="face back"></div>
+    </div>
+    <div class="card">
+        <div class="face front"></div>
+        <div class="face back"></div>
+    </div>
+    <div class="card">
+        <div class="face front"></div>
+        <div class="face back"></div>
+    </div>
+	</div>
+	
+	<div class="player0">
+    <div class="card">
+        <div class="face front"></div>
+        <div class="face back"></div>
+    </div>
+    <div class="card">
+        <div class="face front"></div>
+        <div class="face back"></div>
+    </div>
+		<div class="userinfo">
+			Player3	
+		</div>
+		<div class="status">
+			100
+		</div>
+	</div>
+	<button class="start-btn">start</button>
+</div>
+
+<script>
+		$(".face.front").each(function(){
+			$(this).append(Poker.getBackImage(60, '#7A7BB8', '#2E319C'));
+		});
+		$(".face.back").each(function(){
+			$(this).append(Poker.getCardImage(60,'hearts','x'));
+		});
+		$(".face.back img").attr('src', Poker.getCardImage(60,'hearts','2').src);
+		$(".player1 .face.back img")[0].src = Poker.getCardImage(60,'hearts','3').src;
+
+		var count = 0;
+		$(".card").click(function(){
+			if(count ++ % 2 ==0)
+				$(".card").addClass("flipped");
+			else 
+				$(".card").removeClass("flipped");
+		});
+</script>
+</body>
+
+<script type="text/javascript" charset="utf-8" src="js/init.js"></script>
